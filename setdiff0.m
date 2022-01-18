@@ -3,7 +3,6 @@ function C = setdiff0(A, B, tol)
 %SETDIFF0  Set difference with tolerance
 % function x = solve0(varargin)
 %
-% Revision date: February 6, 2021
 % (C) Michiel Hochstenbach 2021
 
 if nargin < 3 || isempty(tol), tol = 1e-6; end
