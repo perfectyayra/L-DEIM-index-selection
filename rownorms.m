@@ -3,9 +3,6 @@ function n = rownorms(A, p)
 %ROWNORMS  Row norms
 % function n = rownorms(A, p)
 %
-% See also COLNORMS
-%
-% Revision date: February 7, 2021
 % (C) Michiel Hochstenbach 2021
 
 if nargin < 2 || isempty(p), p = 2; end
