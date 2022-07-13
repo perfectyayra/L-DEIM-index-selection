@@ -12,13 +12,16 @@ function [C,R,M] = ldeim(A,U,V,r, k)
 % (C) Perfect Gidisu, Michiel Hochstenbach 2021
 
 
-
+irow=zeros(1,k);
+icol=zeros(1,k);
 for j = 1:k
   % Soft indexing
   [~, irow(j)] = max(abs(U(:,j)));
-   [~, icol(j)] = max(abs(V(:,j)));
-  U(:,j+1:k) = U(:,j+1:k) - U(:,1:j) * (U(irow,1:j) \ U(irow,j+1:k));
-  V(:,j+1:k) = V(:,j+1:k) - V(:,1:j) * (V(icol,1:j) \ V(icol,j+1:k));
+  [~, icol(j)] = max(abs(V(:,j)));
+  if j<k
+    U(:,j+1) = U(:,j+1) - U(:,1:j) * (U(irow(1:j),1:j) \ U(irow(1:j),j+1));
+    V(:,j+1) = V(:,j+1) - V(:,1:j) * (V(icol(1:j),1:j) \ V(icol(1:j),j+1));
+  end
 end
 U2 = rownorms(U); % Re-evaluate index set
 V2= rownorms(V);
