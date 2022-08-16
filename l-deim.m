@@ -1,12 +1,13 @@
 function [C,R,M] = ldeim(A,U,V,r, k)
 
 %CUR_DEIM_SOFT  Soft DEIM incurred CUR decomposition
-% function [C, R, M] = ldeim(A,U,V, k)
+% function [C, R, M] = ldeim(A,U,V, r,k)
 % A is the data matrix
 % U contains the left singular vectors
 % V contains the right singular vectors
-% r is the desired rank 
-% k the number of singular vectors
+% r is the desired rank of the approximation
+% k the number of available singular vectors
+% k << r
 % A ~ CMR,  C = A(:,icol);  R = A(irow,:)
 %
 % (C) Perfect Gidisu, Michiel Hochstenbach 2021
