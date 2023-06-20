@@ -34,4 +34,4 @@ irow = [irow(1:k) irow2(1:r-k)];
 icol = [icol(1:k) icol2(1:r-k)];
 C= A(:,icol);
 R= A(irow,:);
-M = A(:,icol) \ (A / A(irow,:));
+M = C \ (A / R);
